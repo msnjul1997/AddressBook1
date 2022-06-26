@@ -1,7 +1,7 @@
 package com.bridgelabz;
 
 public class Contacts {
-	 private String firstName;
+	  private String firstName;
 	    private String lastName;
 	    private String address;
 	    private String city;
@@ -29,6 +29,6 @@ public class Contacts {
 	    public String toString()
 	    {
 	        return "First name is: "+firstName+"\nLast Name is: "+lastName+"\nAddress is: "+address+"\nCity name is: "+city+
-	                "\nState is: "+state+"\nZip is: "+zip+"\nPhone Number is: "+phone+"\nEmail Id is: "+email;
+	                "\nState is: "+state+"\nZip is: "+zip+"\nPhone Number is: "+phone+"\nEmail Id is: "+email+"\n";
 	    }
 }

@@ -11,23 +11,30 @@ public class AddressBook {
 	        String option;
 	        while(true) {
 	            System.out.println(" ---- MENU ----");
-	            System.out.println(" 1. Add contacts\n 2. Display contacts\n 3. Edit contacts\n 4. Delete contact\n 5. Exit");
+	            System.out.println(" 1. Add Address Book\n 2. Add contacts\n 3. Display contacts\n 4. Edit contact\n 5. Delete Contact\n 6. Exit");
 	            option = sc.next();
 
 	            switch (option) {
+
 	                case "1":
-	                    AddressBookService.addContact();
+	                    AddressBookService.addAddressBook();
 	                    break;
 	                case "2":
-	                    AddressBookService.display();
+	                    String addressBook;
+	                    System.out.println("Enter the address book:");
+	                    addressBook = sc.next();
+	                    AddressBookService.addContact(addressBook);
 	                    break;
 	                case "3":
-	                    AddressBookService.editContact();
+	                    AddressBookService.display();
 	                    break;
 	                case "4":
-	                    AddressBookService.deleteContact();
+	                    AddressBookService.editContact();
 	                    break;
 	                case "5":
+	                    AddressBookService.deleteContact();
+	                    break;
+	                case "6":
 	                    System.out.println("Thank You!");
 	                    return;
 	                default:
