@@ -25,5 +25,9 @@ public class Contact {
 	        return "First name is: "+firstName+"\nLast Name is: "+lastName+"\nAddress is: "+address+"\nCity name is: "+city+
 	                "\nState is: "+state+"\nZip is: "+zip+"\nPhone Number is: "+phone+"\nEmail Id is: "+email;
 	    }
+		public String getFirstName() {
+			// TODO Auto-generated method stub
+			return null;
+		}
 
 }
