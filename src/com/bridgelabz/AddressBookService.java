@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class AddressBookService {
 	 public static Scanner sc = new Scanner(System.in);
-	    public static ArrayList<Contact> arrayOfContacts = new ArrayList<Contact>();
+	    public static ArrayList<Contacts> arrayOfContacts = new ArrayList<Contacts>();
 	    public static void addContact()
 	    {
 
@@ -26,12 +26,12 @@ public class AddressBookService {
 	        long phone = sc.nextLong();
 	        System.out.println("Please enter your email id :");
 	        String email_id = sc.next();
-	        Contact c = new Contact(first_name, last_name, address, city, state, zip, phone, email_id);
+	        Contacts c = new Contacts(first_name, last_name, address, city, state, zip, phone, email_id);
 	        arrayOfContacts.add(c);
 	    }
 	    public static void display()
 	    {
-	        for (Contact c:arrayOfContacts) {
+	        for (Contacts c:arrayOfContacts) {
 	            System.out.println(c);
 	        }
 	    }
@@ -40,7 +40,7 @@ public class AddressBookService {
 	    {
 
 
-	        for (Contact contact : arrayOfContacts) {
+	        for (Contacts contact : arrayOfContacts) {
 	            if (editName.compareToIgnoreCase(contact.getFirstName()) == 0) {
 	                return arrayOfContacts.indexOf(contact);
 	            }
@@ -48,45 +48,52 @@ public class AddressBookService {
 
 	        return -1;
 	    }
-
-		/*
-		 * public static void editContact() {
-		 * System.out.println("Enter the name you want to edit."); String editName =
-		 * sc.next(); int ans = edit(editName); if(ans == -1) {
-		 * System.out.println("Contact with name "+editName+" not found"); } else {
-		 * System.out.println("Found the contact\nPlease edit the details: ");
-		 * //addContact(); }
-		 */
-	        private static int deleteContact(String delName)
+	    public static void editContact()
+	    {
+	        System.out.println("Enter the name you want to edit.");
+	        String editName = sc.next();
+	        int ans = edit(editName);
+	        if(ans == -1)
 	        {
-	            for (Contact contact : arrayOfContacts) {
-	                if (delName.compareToIgnoreCase(contact.getFirstName()) == 0) {
-	                    return arrayOfContacts.indexOf(contact);
-	                }
-	            }
-	            return -1;
+	            System.out.println("Contact with name "+editName+" not found");
 	        }
-	        public static void deleteContact()
+	        else {
+	            System.out.println("Found the contact\nPlease edit the details: ");
+	            addContact();
+	        }
+	    }
+
+	    private static int deleteContact(String delName)
+	    {
+	        for (Contacts contact : arrayOfContacts) {
+	            if (delName.compareToIgnoreCase(contact.getFirstName()) == 0) {
+	                return arrayOfContacts.indexOf(contact);
+	            }
+	        }
+	        return -1;
+	    }
+	    public static void deleteContact()
+	    {
+	        System.out.println("Enter the name you want to delete.");
+	        String delName = sc.next();
+	        int ans = deleteContact(delName);
+	        if(ans == -1)
 	        {
-	            System.out.println("Enter the name you want to delete.");
-	            String delName = sc.next();
-	            int ans = deleteContact(delName);
-	            if(ans == -1)
+	            System.out.println("Contact with name "+delName+" not found");
+	        }
+	        else {
+	            System.out.println("Details of name : "+delName+" have been deleted");
+	            arrayOfContacts.clear();
+	            if(arrayOfContacts.isEmpty())
 	            {
-	                System.out.println("Contact with name "+delName+" not found");
+	                System.out.println("No new contacts");
 	            }
 	            else {
-	                System.out.println("Details of name : "+delName+" have been deleted");
-	                arrayOfContacts.clear();
-	                if(arrayOfContacts.isEmpty())
-	                {
-	                    System.out.println("No new contacts");
+	                for (Contacts c:arrayOfContacts) {
+	                    System.out.println(c);
 	                }
-	                else {
-	                    for (Contact c:arrayOfContacts) {
-	                        System.out.println(c);
-	                    }
-	             }
-	      }
-    }
+	            }
+	        }
+	    }
+
 }
