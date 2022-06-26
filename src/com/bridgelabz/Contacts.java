@@ -1,7 +1,7 @@
 package com.bridgelabz;
 
 public class Contacts {
-	 private String firstName;
+	  private String firstName;
 	    private String lastName;
 	    private String address;
 
