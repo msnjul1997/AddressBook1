@@ -1,6 +1,6 @@
 package com.bridgelabz;
 
-public class Contact {
+public class Contacts {
 	 private String firstName;
 	    private String lastName;
 	    private String address;
@@ -9,7 +9,12 @@ public class Contact {
 	    private int zip;
 	    private long phone;
 	    private String email;
-	    public Contact(String first_name, String last_name, String address, String city, String state, int zip, long phone, String email_id) {
+
+	    public String getFirstName() {
+	        return firstName;
+	    }
+
+	    public Contacts(String first_name, String last_name, String address, String city, String state, int zip, long phone, String email_id) {
 	        this.firstName = first_name;
 	        this.lastName = last_name;
 	        this.address = address;
@@ -19,15 +24,11 @@ public class Contact {
 	        this.phone = phone;
 	        this.email = email_id;
 	    }
-		@Override
+
+	    @Override
 	    public String toString()
 	    {
 	        return "First name is: "+firstName+"\nLast Name is: "+lastName+"\nAddress is: "+address+"\nCity name is: "+city+
 	                "\nState is: "+state+"\nZip is: "+zip+"\nPhone Number is: "+phone+"\nEmail Id is: "+email;
 	    }
-		public String getFirstName() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
 }
