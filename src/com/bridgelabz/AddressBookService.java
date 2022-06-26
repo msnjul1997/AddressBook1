@@ -155,6 +155,7 @@ public class AddressBookService {
 	        }
 	        return true;
 	    }
+	    // Searching using State
 	    public static void findSameStateContacts(String state)
 	    {
 	        for(String s : dictionaryForState.keySet())
@@ -165,7 +166,7 @@ public class AddressBookService {
 	            }
 	        }
 	    }
-
+	    //Searching using city
 	    public static void findSameCityContacts(String city)
 	    {
 	        for(String s : dictionaryForCity.keySet())
