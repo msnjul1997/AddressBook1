@@ -48,19 +48,45 @@ public class AddressBookService {
 
 	        return -1;
 	    }
-	    public static void editContact()
-	    {
-	        System.out.println("Enter the name you want to edit.");
-	        String editName = sc.next();
-	        int ans = edit(editName);
-	        if(ans == -1)
-	        {
-	            System.out.println("Contact with name "+editName+" not found");
-	        }
-	        else {
-	            System.out.println("Found the contact\nPlease edit the details: ");
-	            addContact();
-	        }
-	    }
 
+		/*
+		 * public static void editContact() {
+		 * System.out.println("Enter the name you want to edit."); String editName =
+		 * sc.next(); int ans = edit(editName); if(ans == -1) {
+		 * System.out.println("Contact with name "+editName+" not found"); } else {
+		 * System.out.println("Found the contact\nPlease edit the details: ");
+		 * //addContact(); }
+		 */
+	        private static int deleteContact(String delName)
+	        {
+	            for (Contact contact : arrayOfContacts) {
+	                if (delName.compareToIgnoreCase(contact.getFirstName()) == 0) {
+	                    return arrayOfContacts.indexOf(contact);
+	                }
+	            }
+	            return -1;
+	        }
+	        public static void deleteContact()
+	        {
+	            System.out.println("Enter the name you want to delete.");
+	            String delName = sc.next();
+	            int ans = deleteContact(delName);
+	            if(ans == -1)
+	            {
+	                System.out.println("Contact with name "+delName+" not found");
+	            }
+	            else {
+	                System.out.println("Details of name : "+delName+" have been deleted");
+	                arrayOfContacts.clear();
+	                if(arrayOfContacts.isEmpty())
+	                {
+	                    System.out.println("No new contacts");
+	                }
+	                else {
+	                    for (Contact c:arrayOfContacts) {
+	                        System.out.println(c);
+	                    }
+	             }
+	      }
+    }
 }
