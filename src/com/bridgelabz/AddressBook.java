@@ -13,7 +13,7 @@ public class AddressBook {
 	            System.out.println(" ---- MENU ----");
 	            System.out.println(" 1. Add Address Book\n 2. Add contacts\n 3. Display contacts" +
 	                    "\n 4. Edit contact\n 5. Delete Contact\n 6. Find Contacts with same state" +
-	                    "\n 7. Find Contacts with same city\n8. Exit");
+	                    "\n 7. Find Contacts with same city \n 8. Display the Contacts of an Address Book in Order\n 9. Exit");
 	            option = sc.next();
 
 	            switch (option) {
@@ -47,6 +47,9 @@ public class AddressBook {
 	                    AddressBookService.findSameCityContacts(city);
 	                    break;
 	                case "8":
+	                    AddressBookService.displayByOrder();
+	                    break;
+	                case "9":
 	                    System.out.println("Thank You!");
 	                    return;
 	                default:
