@@ -3,7 +3,7 @@ package com.bridgelabz;
 import java.util.Scanner;
 
 public class AddressBook {
-	 public static void main(String[] args) {
+	  public static void main(String[] args) {
 
 	        System.out.println("---Welcome to Address Book---");
 	        Scanner sc = new Scanner(System.in);
@@ -13,7 +13,7 @@ public class AddressBook {
 	            System.out.println(" ---- MENU ----");
 	            System.out.println(" 1. Add Address Book\n 2. Add contacts\n 3. Display contacts" +
 	                    "\n 4. Edit contact\n 5. Delete Contact\n 6. Find Contacts with same state" +
-	                    "\n 7. Find Contacts with same city \n 8. Display the Contacts of an Address Book in Order\n 9. Exit");
+	                    "\n 7. Find Contacts with same city \n 8.Sort the contacts by City State Or Zip.\n 9. Exit");
 	            option = sc.next();
 
 	            switch (option) {
@@ -28,7 +28,7 @@ public class AddressBook {
 	                    AddressBookService.addContact(addressBook);
 	                    break;
 	                case "3":
-	                    AddressBookService.display();
+	                    AddressBookService.displayByOrder();
 	                    break;
 	                case "4":
 	                    AddressBookService.editContact();
@@ -47,7 +47,17 @@ public class AddressBook {
 	                    AddressBookService.findSameCityContacts(city);
 	                    break;
 	                case "8":
-	                    AddressBookService.displayByOrder();
+	                    int option2;
+	                    System.out.println("\t\nEnter 1: To sort by city:\nEnter 2: To sort by state:\nEnter 3: To sort by zip:");
+	                    option2 = sc.nextInt();
+	                    switch (option2){
+	                        case 1 : AddressBookService.sortByCity();
+	                            break;
+	                        case 2 : AddressBookService.sortByCity();
+	                            break;
+	                        case 3:AddressBookService.sortByZip();
+	                            break;
+	                    }
 	                    break;
 	                case "9":
 	                    System.out.println("Thank You!");
