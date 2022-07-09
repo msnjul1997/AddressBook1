@@ -1,6 +1,7 @@
 package com.bridgelabz;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,34 +15,17 @@ public class AddressBookIo {
 	 static Gson gson = new Gson();
 	    static File file = new File("AddressBook.csv");
 	    public static  void writeIntoFile() throws IOException{
+	        String str = gson.toJson(AddressBookService.hashMapOfAddressBooks);
+	        file.createNewFile();
 	        FileWriter fileWriter = new FileWriter(file);
-	        CSVWriter csvWriter = new CSVWriter(fileWriter);
-	        String[] strContacts = new String[40];
-	        List<String[]> contacts = new ArrayList<>();
-	        AddressBookService.hashMapOfAddressBooks.entrySet().stream().forEach(n->
-	                {
-//	                    try {
-//	                        fileWriter.write(n.getKey()+n.getValue());
-//	                    } catch (IOException e) {
-//	                        throw new RuntimeException(e);
-//	                    }
-	                        strContacts[0] = n.getKey();
-	                        strContacts[1] = n.getValue().toString();
-	                    contacts.add(strContacts);
-	                    csvWriter.writeAll(contacts);
-	                }
-	        );
+	        fileWriter.write(str);
 	        fileWriter.close();
-	        System.out.println("--Data Inserted--");
+	        System.out.println("Data inserted");
 	    }
 	    public static void readFromFile() throws IOException {
-	        Scanner sc = new Scanner(file);
-	        sc.useDelimiter(",");
-	        while (sc.hasNext())
-	        {
-	            System.out.print(sc.next());
-	        }
-	        sc.close();
+	        FileReader fileReader = new FileReader(file);
+	        Object obj = gson.fromJson(fileReader,Object.class);
+	        System.out.println(obj);
+	        fileReader.close();
 	    }
-
 }
