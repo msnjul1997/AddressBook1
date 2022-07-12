@@ -2,6 +2,8 @@ package com.bridgelabz;
 
 import java.util.Scanner;
 
+import com.bridgelabz.databaseconnection.AddressBookToDB;
+
 public class AddressBook {
 	  public static void main(String[] args) {
 
@@ -9,6 +11,7 @@ public class AddressBook {
 	        Scanner sc = new Scanner(System.in);
 	        System.out.println();
 	        String option;
+	        AddressBookToDB addressBookToDB = new AddressBookToDB();
 	        while(true) {
 	            System.out.println(" ---- MENU ----");
 	            System.out.println(" 1. Add Address Book\n 2. Add contacts\n 3. Display contacts" +
